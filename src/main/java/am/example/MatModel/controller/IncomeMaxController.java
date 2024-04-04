@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/max")
 public class IncomeMaxController {
+
     private final IncomeMaxServiceImpl service;
 
     public IncomeMaxController(IncomeMaxServiceImpl service) {
@@ -21,13 +22,7 @@ public class IncomeMaxController {
 
     @Operation(summary = "Getting maximum income")
     @GetMapping("/mat")
-    public String mat(@RequestParam int productQuantity,
-                      @RequestParam int amountOfResources,
-                      @RequestParam double[][] materialConsumptionInTheProduct,
-                      @RequestParam double[] volumeOfMaterialByType,
-                      @RequestParam double[] productRevenueByType) {
-        return service.findMaxIncomeWithMinimumExpenses(productQuantity,
-                amountOfResources, materialConsumptionInTheProduct,
-                volumeOfMaterialByType, productRevenueByType);
+    public String mat(@RequestParam int productQuantity, @RequestParam int amountOfResources, @RequestParam double[][] materialConsumptionInTheProduct, @RequestParam double[] volumeOfMaterialByType, @RequestParam double[] productRevenueByType) {
+        return service.findMaxIncomeWithMinimumExpenses(productQuantity, amountOfResources, materialConsumptionInTheProduct, volumeOfMaterialByType, productRevenueByType);
     }
 }

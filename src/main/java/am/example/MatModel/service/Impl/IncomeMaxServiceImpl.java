@@ -3,13 +3,15 @@ package am.example.MatModel.service.Impl;
 import am.example.MatModel.service.IncomeMaxService;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class IncomeMaxServiceImpl implements IncomeMaxService {
-
     @Override
-    public String findMaxIncomeWithMinimumExpenses(int m, int n, double[][] a, double[] b, double[] c) {
+    public String findMaxIncomeWithMinimumExpenses(int m, int n, double[][] a, double[] b, double[] c) throws RuntimeException {
         double[][] v = arrayConversion(m, n, a);
-
+        if (v[0].length != m) {
+            throw new IndexOutOfBoundsException("Array sizes must be equal");
+        }
         double max = Double.MIN_VALUE;
         int indexMax = 0;
         for (int i = 0; i < c.length; i++) {
