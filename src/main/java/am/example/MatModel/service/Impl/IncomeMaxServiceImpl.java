@@ -35,7 +35,6 @@ public class IncomeMaxServiceImpl implements IncomeMaxService {
         maximumIncome = min * max;
         String s = "With the product: " + (indexMax + 1) + ", the maximum income will be: " + maximumIncome;
         return s;
-
     }
 
     public static double[][] arrayConversion(int m, int n, double[][] a) {

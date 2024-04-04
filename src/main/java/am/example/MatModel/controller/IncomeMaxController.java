@@ -20,7 +20,7 @@ public class IncomeMaxController {
     }
 
 
-    @Operation(summary = "Getting maximum income")
+    @Operation(summary = "F_max = (income₁ * x₁ + income₂ * x₂ + ... + incomeₙ * xₙ) ⟶ MAX")
     @GetMapping("/mat")
     public String mat(@RequestParam int productQuantity, @RequestParam int amountOfResources, @RequestParam double[][] materialConsumptionInTheProduct, @RequestParam double[] volumeOfMaterialByType, @RequestParam double[] productRevenueByType) {
         return service.findMaxIncomeWithMinimumExpenses(productQuantity, amountOfResources, materialConsumptionInTheProduct, volumeOfMaterialByType, productRevenueByType);
